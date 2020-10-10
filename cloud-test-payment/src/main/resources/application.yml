@@ -1,0 +1,27 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: springcloud-test-payment
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # \u5F53\u524D\u6570\u636E\u6E90\u64CD\u4F5C\u7C7B\u578B
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql\u9A71\u52A8\u5305
+    url: jdbc:mysql://47.92.252.197:3306/eduresnet?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.hhc.springcloud.entity
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 9
